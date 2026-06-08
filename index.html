@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ToDo-App</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <section class="hero" aria-labelledby="app-title">
+        <p class="eyebrow">Einfach organisiert</p>
+        <h1 id="app-title">Meine ToDos</h1>
+        <p class="subtitle">Sammle Aufgaben, hake Erledigtes ab und behalte den Tag im Blick.</p>
+      </section>
+
+      <form class="todo-form" id="todo-form">
+        <label class="sr-only" for="todo-input">Neue Aufgabe</label>
+        <input
+          id="todo-input"
+          type="text"
+          name="todo"
+          placeholder="Was möchtest du erledigen?"
+          autocomplete="off"
+          required
+        />
+        <button type="submit">Hinzufügen</button>
+      </form>
+
+      <section class="toolbar" aria-label="ToDo-Filter">
+        <div class="filters" role="group" aria-label="Aufgaben filtern">
+          <button class="filter active" type="button" data-filter="all">Alle</button>
+          <button class="filter" type="button" data-filter="open">Offen</button>
+          <button class="filter" type="button" data-filter="done">Erledigt</button>
+        </div>
+        <button class="ghost-button" id="clear-done" type="button">Erledigte löschen</button>
+      </section>
+
+      <ul class="todo-list" id="todo-list" aria-live="polite"></ul>
+
+      <p class="empty-state" id="empty-state">Noch keine Aufgaben. Fang mit einer kleinen Sache an.</p>
+      <p class="summary" id="summary">0 Aufgaben offen</p>
+    </main>
+
+    <template id="todo-template">
+      <li class="todo-item">
+        <label>
+          <input class="toggle" type="checkbox" />
+          <span class="todo-text"></span>
+        </label>
+        <button class="delete-button" type="button" aria-label="Aufgabe löschen">×</button>
+      </li>
+    </template>
+
+    <script src="script.js"></script>
+  </body>
+</html>
